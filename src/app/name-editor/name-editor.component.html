@@ -1,0 +1,10 @@
+<div class="form-group">
+  <label for="usr">Name:</label>
+  <input type="text" class="form-control" [formControl]="name" id="usr" (keyup.enter)="onKeyUp(name.value)">
+</div>
+
+<p>
+  <button (click)="updateName()">Update Name</button>
+</p>
+
+<p>{{value}}</p>

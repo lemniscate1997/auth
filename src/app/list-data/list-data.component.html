@@ -1,0 +1,9 @@
+<button type="button" class="btn btn-success" (click)="newStud()">AddStudent</button>
+
+<div class="container">
+  <div class="list-group list-group-flush">
+    <li class="list-group-item" *ngFor = "let item of listData">
+      <app-view-data [data]="item" (deleteData)="deleteStudent($event)"></app-view-data>
+    </li>
+  </div>
+</div>

@@ -1,0 +1,18 @@
+
+<div class="col-md-3">
+  <h2 class="text-center">Edit User</h2>
+  <form [formGroup]="editForm" (ngSubmit)="onSubmit()">
+    
+    <div class="form-group">
+      <label for="Name">ID:</label>
+      <input formControlName="id" placeholder="id" name="id" disabled class="form-control" id="id">
+    </div>
+
+    <div class="form-group">
+      <label for="Name">Name:</label>
+      <input formControlName="name" placeholder="name" name="name" class="form-control" id="name">
+    </div>
+
+    <button class="btn btn-success">Update</button>
+  </form>
+</div>
