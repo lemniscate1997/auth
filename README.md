@@ -31,4 +31,6 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 
 authguard added on list-data component which could be access by http://localhost:5000/list
 
+start json-server and watch db1.json to access data into application
+
 --------------------------------------------------------
