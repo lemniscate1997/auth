@@ -26,6 +26,6 @@ export class ViewDataComponent implements OnInit {
 
   edit(){
     //this.router.navigate(['',this.data.id],{skipLocationChange: true});
-    this.router.navigate(['',this.data.id]);
+    this.router.navigate(['edit',this.data.id]);
   }
 }

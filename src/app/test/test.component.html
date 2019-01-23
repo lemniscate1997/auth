@@ -1,0 +1,46 @@
+<div class="row">
+  <button class="btn btn-primary" (click)="setCookies()">Set cookies</button>
+  <button class="btn btn-success" (click)="getCookies()">Get cookies</button>
+  <button class="btn btn-danger" (click)="removeCookies()">Remove cookies</button>
+</div>
+
+<div class="row">
+  <button class="btn btn-primary" (click)="setLocalStorage()">Set local</button>
+  <button class="btn btn-success" (click)="getLocalStorage()">Get local</button>
+  <button class="btn btn-danger" (click)="removeLocalStorage()">Remove local</button>
+</div>
+
+<div class="row">
+  <button class="btn btn-primary" (click)="setSessionStorage()">Set session</button>
+  <button class="btn btn-success" (click)="getSessionStorage()">Get session</button>
+  <button class="btn btn-danger" (click)="removeSessionStorage()">Remove session</button>
+</div>
+
+<div class="container">
+  <div class="row">
+    <nav class="navbar">
+      <input class="form-control" type="text" name="search" [(ngModel)]="filter">      
+    </nav>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th (click)="sort('name')">Name
+            <span class="glyphicon sort-icon" *ngIf="key =='name'" [ngClass]="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span>
+          </th>
+          <th (click)="sort('genre')">Genre
+            <span class="glyphicon sort-icon" *ngIf="key =='genre'" [ngClass]="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span>
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let game of games | orderBy: key : reverse | filter:filter | paginate: { itemsPerPage: 5, currentPage: p }; let i = index">
+          <td>{{i}}</td>
+          <td>{{game.name}}</td>
+          <td>{{game.genre}}</td>
+        </tr>
+      </tbody>
+      <pagination-controls (pageChange)="p = $event"></pagination-controls>
+    </table>
+  </div>
+</div>

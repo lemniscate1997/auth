@@ -38,4 +38,8 @@ export class DataService {
   updateItem(item:IStudent) {
     return this._http.put(this.url + '/' + item.id, item);
   }
+
+  getToken(){
+    return !!localStorage.getItem("user");
+  }
 }

@@ -12,7 +12,23 @@ import {Router, Data} from "@angular/router";
 })
 export class AddStudentComponent implements OnInit {
 
-  constructor(private formBuilder: FormBuilder,private router: Router, private userService: DataService) { }
+  constructor(private formBuilder: FormBuilder,private router: Router, private userService: DataService) {
+    this.router.events.subscribe(()=> 
+    {
+      let root = this.router.routerState.snapshot.root;
+      while(root){
+        if(root.children && root.children.length)
+          root = root.children[0];
+        else if(root.data && root.data["title"]){
+          console.log(root.data["title"]);
+          return;
+        }
+        else{
+          return;
+        }
+      }
+    })
+   }
 
   addForm: FormGroup;
 

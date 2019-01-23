@@ -17,7 +17,11 @@ export class EditStudentComponent implements OnInit {
 
 
   constructor(private route: ActivatedRoute, private router:Router, private ds:DataService,private formBuilder: FormBuilder) {
-    
+    this.router.events.subscribe(()=> 
+    {
+      let root = this.router.routerState.snapshot.root;
+      console.log(root.data["title"]);
+    })
   }
 
   ngOnInit() {
